@@ -17,6 +17,7 @@
 
 <body>
     <script type="text/javascript" src="js/three.min.js"></script>
+    <script type="text/javascript" src="js/OrbitControls.js"></script>
     <script>
         var camera, scene, renderer;
         var geometry, material, mesh;
@@ -32,6 +33,7 @@
             scene = new THREE.Scene();
 
             geometry = new THREE.BoxGeometry( 0.2, 0.2, 0.2 );
+
             material = new THREE.MeshNormalMaterial();
 
             mesh = new THREE.Mesh( geometry, material );
@@ -40,6 +42,9 @@
             renderer = new THREE.WebGLRenderer( { antialias: true } );
             renderer.setSize( window.innerWidth -10, window.innerHeight - 10 );
             document.body.appendChild( renderer.domElement );
+
+            var orbit = new THREE.OrbitControls( camera, renderer.domElement );
+			orbit.enableZoom = false;
 
         }
 
